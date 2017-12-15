@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroud"
+    tools:context="com.gray.gmusic.MainActivity">
+    <RadioGroup
+        android:id="@+id/rg_main"
+        android:background="#80000000"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:gravity="center"
+            android:id="@+id/rb_mine"
+            android:textColor="@drawable/selector_text_color"
+            android:text="我的"
+            android:button="@null"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+        <RadioButton
+            android:gravity="center"
+            android:id="@+id/rb_taoge"
+            android:textColor="@drawable/selector_text_color"
+            android:text="淘歌"
+            android:button="@null"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+        <RadioButton
+            android:gravity="center"
+            android:id="@+id/rb_search"
+            android:textColor="@drawable/selector_text_color"
+            android:text="搜索"
+            android:button="@null"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+        <RadioButton
+            android:gravity="center"
+            android:id="@+id/rb_recommend"
+            android:textColor="@drawable/selector_text_color"
+            android:text="推荐"
+            android:button="@null"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+    </RadioGroup>
+
+    <RelativeLayout
+        android:background="#80000000"
+        android:id="@+id/rl_main_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <!--left-->
+        <ImageView
+            android:id="@+id/iv_bottom_album"
+            android:src="@drawable/img_album_background"
+            android:layout_alignParentLeft="true"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+
+        <!--right-->
+        <ImageView
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/iv_bottom_list"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:baselineAlignBottom="false"
+            android:src="@drawable/icon_menu_point"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+        <View
+            android:background="#aaaaaa"
+            android:layout_toLeftOf="@id/iv_bottom_list"
+            android:layout_width="0.5dp"
+            android:layout_height="50dp">
+
+        </View>
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_main"
+        android:layout_below="@id/rg_main"
+        android:layout_above="@id/rl_main_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    </android.support.v4.view.ViewPager>
+
+
+</RelativeLayout>
