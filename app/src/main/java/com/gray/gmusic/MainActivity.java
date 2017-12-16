@@ -16,11 +16,6 @@ import com.gray.gmusic.fragment.TaogeFragment;
 
 public class MainActivity extends FragmentActivity {
 
-    //声明
-    MyFragmentPagerAdapter myFragmentPagerAdapter;
-    ViewPager viewPager;
-    RadioGroup radioGroupMain;
-
     //类
     class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 
@@ -61,30 +56,39 @@ public class MainActivity extends FragmentActivity {
         }
     }
 
+    //声明
+    MyFragmentPagerAdapter myFragmentPagerAdapterMain;
+    ViewPager viewPagerMain;
+    RadioGroup radioGroupMain;
 
     //初始化
     private void setupView() {
-        myFragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
+        myFragmentPagerAdapterMain = new MyFragmentPagerAdapter(getSupportFragmentManager());
 
-        viewPager = (ViewPager) findViewById(R.id.vp_main);
-        viewPager.setAdapter(myFragmentPagerAdapter);
+        viewPagerMain = (ViewPager) findViewById(R.id.vp_main);
 
         radioGroupMain = (RadioGroup) findViewById(R.id.rg_main);
+    }
+
+    public void setAdapterOnViewPagerMain(){
+        viewPagerMain.setAdapter(myFragmentPagerAdapterMain);
+    }
+    public void setOnCheckedChangeListenerOnRadioGroupMain(){
         radioGroupMain.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 switch (i) {
                     case R.id.rb_mine:
-                        viewPager.setCurrentItem(0);
+                        viewPagerMain.setCurrentItem(0);
                         break;
                     case R.id.rb_taoge:
-                        viewPager.setCurrentItem(1);
+                        viewPagerMain.setCurrentItem(1);
                         break;
                     case R.id.rb_search:
-                        viewPager.setCurrentItem(2);
+                        viewPagerMain.setCurrentItem(2);
                         break;
                     case R.id.rb_recommend:
-                        viewPager.setCurrentItem(3);
+                        viewPagerMain.setCurrentItem(3);
                         break;
                     default:
                         break;
@@ -94,14 +98,15 @@ public class MainActivity extends FragmentActivity {
     }
 
 
-
-
+    //生命周期
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         setupView();
+        setAdapterOnViewPagerMain();
+        setOnCheckedChangeListenerOnRadioGroupMain();
 
     }
 }
