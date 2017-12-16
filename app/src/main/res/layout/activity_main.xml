@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,8 +19,9 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:button="@null"
+            android:checked="true"
             android:gravity="center"
-            android:text="我的"
+            android:text="@string/main_activity_textview_text_mine"
             android:textColor="@drawable/selector_text_color" />
 
         <RadioButton
@@ -31,7 +31,7 @@
             android:layout_weight="1"
             android:button="@null"
             android:gravity="center"
-            android:text="淘歌"
+            android:text="@string/main_activity_textview_text_taoge"
             android:textColor="@drawable/selector_text_color" />
 
         <RadioButton
@@ -41,7 +41,7 @@
             android:layout_weight="1"
             android:button="@null"
             android:gravity="center"
-            android:text="搜索"
+            android:text="@string/main_activity_textview_text_search"
             android:textColor="@drawable/selector_text_color" />
 
         <RadioButton
@@ -51,7 +51,7 @@
             android:layout_weight="1"
             android:button="@null"
             android:gravity="center"
-            android:text="推荐"
+            android:text="@string/main_activity_textview_text_recommend"
             android:textColor="@drawable/selector_text_color" />
 
     </RadioGroup>
@@ -69,7 +69,7 @@
             android:id="@+id/iv_bottom_album"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_alignParentLeft="true"
+            android:contentDescription="@string/main_activity_imageview_contentDescription_album"
             android:src="@drawable/img_album_background" />
 
 
@@ -84,12 +84,14 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:baselineAlignBottom="false"
+            android:contentDescription="@string/main_activity_imageview_contentDescription_list"
             android:src="@drawable/icon_menu_point" />
 
         <View
             android:layout_width="0.5dp"
             android:layout_height="50dp"
             android:layout_toLeftOf="@id/iv_bottom_list"
+            android:layout_toStartOf="@id/iv_bottom_list"
             android:background="#aaaaaa">
 
         </View>

@@ -6,20 +6,22 @@
 
     <ImageView
 
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="-40dp"
         android:id="@+id/img_welcome01"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="-40dp"
+        android:contentDescription="@string/welcome_activity_imageview_contentDescription_1"
         android:scaleType="fitXY"
-        android:src="@drawable/welcome1"/>
+        android:src="@drawable/welcome1" />
 
     <ImageView
-        android:background="#F3F9FF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="-38dp"
+        android:background="#F3F9FF"
+        android:contentDescription="@string/welcome_activity_imageview_contentDescription_2"
         android:src="@drawable/welcome2" />
 </RelativeLayout>
 

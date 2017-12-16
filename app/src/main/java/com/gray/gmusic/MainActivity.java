@@ -1,13 +1,10 @@
 package com.gray.gmusic;
 
-import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.RadioGroup;
 
@@ -16,9 +13,6 @@ import com.gray.gmusic.fragment.RecommendFragment;
 import com.gray.gmusic.fragment.SearchFragment;
 import com.gray.gmusic.fragment.TaogeFragment;
 
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
-import java.util.List;
 
 public class MainActivity extends FragmentActivity {
 
@@ -28,37 +22,39 @@ public class MainActivity extends FragmentActivity {
     RadioGroup radioGroupMain;
 
     //类
-    class MyFragmentPagerAdapter extends FragmentPagerAdapter{
+    class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 
         Fragment fragment = null;
 
-        public MyFragmentPagerAdapter(FragmentManager fm) {
+        private MyFragmentPagerAdapter(FragmentManager fm) {
             super(fm);
         }
+
         @Override
         public Fragment getItem(int position) {
-            switch (position){
+            switch (position) {
                 case 0:
                     fragment = new MineFragment();
-                    radioGroupMain.check(R.id.rb_mine);
+
                     break;
                 case 1:
                     fragment = new TaogeFragment();
-                    radioGroupMain.check(R.id.rb_taoge);
+
                     break;
                 case 2:
                     fragment = new SearchFragment();
-                    radioGroupMain.check(R.id.rb_search);
+
                     break;
                 case 3:
                     fragment = new RecommendFragment();
-                    radioGroupMain.check(R.id.rb_recommend);
+
                     break;
                 default:
                     break;
             }
             return fragment;
         }
+
         @Override
         public int getCount() {
             return 4;
@@ -67,11 +63,37 @@ public class MainActivity extends FragmentActivity {
 
 
     //初始化
-    private void setupView(){
+    private void setupView() {
         myFragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
+
         viewPager = (ViewPager) findViewById(R.id.vp_main);
+        viewPager.setAdapter(myFragmentPagerAdapter);
+
         radioGroupMain = (RadioGroup) findViewById(R.id.rg_main);
+        radioGroupMain.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                switch (i) {
+                    case R.id.rb_mine:
+                        viewPager.setCurrentItem(0);
+                        break;
+                    case R.id.rb_taoge:
+                        viewPager.setCurrentItem(1);
+                        break;
+                    case R.id.rb_search:
+                        viewPager.setCurrentItem(2);
+                        break;
+                    case R.id.rb_recommend:
+                        viewPager.setCurrentItem(3);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
     }
+
+
 
 
     @Override
@@ -80,7 +102,6 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         setupView();
-        viewPager.setAdapter(myFragmentPagerAdapter);
 
     }
 }
