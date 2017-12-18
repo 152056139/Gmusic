@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.gray.gmusic.fragment.MineFragment;
@@ -14,7 +15,8 @@ import com.gray.gmusic.fragment.SearchFragment;
 import com.gray.gmusic.fragment.TaogeFragment;
 
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends FragmentActivity{
+
 
     //类
     class MyFragmentPagerAdapter extends FragmentPagerAdapter {
@@ -60,12 +62,18 @@ public class MainActivity extends FragmentActivity {
     MyFragmentPagerAdapter myFragmentPagerAdapterMain;
     ViewPager viewPagerMain;
     RadioGroup radioGroupMain;
+    RadioButton radioButtonMine, radioButtonTaoge, radioButtonSearch, radioButtonRecommend;
 
     //初始化
     private void setupView() {
         myFragmentPagerAdapterMain = new MyFragmentPagerAdapter(getSupportFragmentManager());
 
         viewPagerMain = (ViewPager) findViewById(R.id.vp_main);
+
+        radioButtonMine = (RadioButton) findViewById(R.id.rb_mine);
+        radioButtonTaoge = (RadioButton) findViewById(R.id.rb_taoge);
+        radioButtonSearch = (RadioButton) findViewById(R.id.rb_search);
+        radioButtonRecommend = (RadioButton) findViewById(R.id.rb_recommend);
 
         radioGroupMain = (RadioGroup) findViewById(R.id.rg_main);
     }
@@ -96,7 +104,40 @@ public class MainActivity extends FragmentActivity {
             }
         });
     }
+    public void addOnpageChangeListenerOnViewPagerMain(){
+        viewPagerMain.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+                switch(position){
+                    case 0:
+                        radioButtonMine.setChecked(true);
+                        break;
+                    case 1:
+                        radioButtonTaoge.setChecked(true);
+                        break;
+                    case 2:
+                        radioButtonSearch.setChecked(true);
+                        break;
+                    case 3:
+                        radioButtonRecommend.setChecked(true);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+    }
 
     //生命周期
     @Override
@@ -105,8 +146,10 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         setupView();
+
         setAdapterOnViewPagerMain();
         setOnCheckedChangeListenerOnRadioGroupMain();
+        addOnpageChangeListenerOnViewPagerMain();
 
     }
 }
