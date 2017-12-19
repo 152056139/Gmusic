@@ -71,7 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_alignTop="@+id/rl_main_bottom"
-        android:background="#aaaaaa">
+        android:background="#333333">
 
     </View>
 
@@ -110,7 +110,7 @@
             android:layout_width="0.5dp"
             android:layout_height="50dp"
             android:layout_toStartOf="@id/iv_bottom_list"
-            android:background="#aaaaaa">
+            android:background="#333333">
 
         </View>
 

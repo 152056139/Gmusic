@@ -119,5 +119,14 @@
 
     </RelativeLayout>
 
+    <ListView
+        android:id="@+id/lv_music_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/rl_list_bottom"
+        android:layout_below="@id/rl_list_title">
+
+    </ListView>
+
 
 </RelativeLayout>

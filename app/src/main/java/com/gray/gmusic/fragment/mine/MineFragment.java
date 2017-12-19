@@ -1,4 +1,4 @@
-package com.gray.gmusic.fragment;
+package com.gray.gmusic.fragment.mine;
 
 
 import android.content.Intent;

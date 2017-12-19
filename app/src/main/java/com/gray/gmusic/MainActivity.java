@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.gray.gmusic.fragment.MineFragment;
+import com.gray.gmusic.fragment.mine.MineFragment;
 import com.gray.gmusic.fragment.RecommendFragment;
 import com.gray.gmusic.fragment.SearchFragment;
 import com.gray.gmusic.fragment.TaogeFragment;
@@ -138,6 +138,7 @@ public class MainActivity extends FragmentActivity{
             }
         });
     }
+
 
     //生命周期
     @Override
